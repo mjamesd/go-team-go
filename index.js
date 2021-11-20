@@ -19,12 +19,48 @@ const fs = require('fs');
 
 // Inquirer questions
 // There is a bug in inquirer-recursive so that you can't make other types of questions after you ask a recursive one
+let employeeTypes = [`Engineer`,`Intern`,`Manager`,`Other`];
+
 const questions = [
     {
+        name: "employeeType",
         type: list,
-        name: employeeType,
         message: `What type of employee would you like to add?`,
-        choices: [`Engineer`,`Intern`,`Manager`,`Other`],
+        choices: employeeTypes,
         loop: true
     },
+    {
+        name: "employeeId",
+        
+    },
+    {
+        name: "employeeName",
+    },
+    {
+        name: "employeeEmail",
+    },
+    {
+        name: officeNumber,
+        when: (answers) => {
+            answers.employeeType === `Manager`;
+            employeeTypes = [`Engineer`,`Intern`,`Other`];
+        }
+    },
+    {
+
+    },
+    {
+
+    }
 ];
+
+inquirer
+    .prompt(employeeTypeQuestion)
+    .then((employeeTypeAnswer) => {
+        const thisType = employeeTypeAnswer.employeeType;
+        switch(thisType) {
+            case `Manager`:
+
+        }
+    }
+);

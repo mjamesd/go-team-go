@@ -1,4 +1,6 @@
-// Manager test suite
+// // Manager test suite
 
-const Employee = require('../lib/Employee');
-const Manager = require('../lib/Manager');
+// const Employee = require('../lib/Employee');
+// const Manager = require('../lib/Manager');
+
+// describe.skip();
