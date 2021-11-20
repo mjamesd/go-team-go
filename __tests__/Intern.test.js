@@ -15,7 +15,7 @@ describe(`Intern`, () => {
         });
 
         it(`Should throw an error if no school name is provided`, () => {
-            const err = new Error(`Invalid parameters`);
+            const err = new Error(`Invalid school parameter`);
             const cb = () => new Intern(439, `Mark`, `mjamesd@gmail.com`);
 
             expect(cb).toThrowError(err);

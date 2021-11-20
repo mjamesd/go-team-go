@@ -16,7 +16,7 @@ describe(`Engineer`, () => {
         });
 
         it(`Should throw an error if no GitHub profile is provided`, () => {
-            const err = new Error(`Invalid parameters`);
+            const err = new Error(`Invalid GitHub parameter`);
             const cb = () => new Engineer(439, `Mark`, `mjamesd@gmail.com`);
 
             expect(cb).toThrowError(err);

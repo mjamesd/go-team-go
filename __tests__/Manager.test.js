@@ -16,7 +16,7 @@ describe(`Manager`, () => {
         });
 
         it(`Should throw an error if no office number is provided`, () => {
-            const err = new Error(`Invalid parameters`);
+            const err = new Error(`Invalid office number parameter`);
             const cb = () => new Manager(439, `Mark`, `mjamesd@gmail.com`);
 
             expect(cb).toThrowError(err);
