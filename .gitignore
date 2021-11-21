@@ -2,3 +2,4 @@ node_modules
 coverage
 spec
 ./package-lock.json
+./dist/index.html
