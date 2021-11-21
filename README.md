@@ -30,7 +30,7 @@ SO THAT I have quick access to their emails and GitHub profiles
 2. Run `npm init -y`
 
 ## Usage
-[View this video for usage]()
+[View this video for usage](https://watch.screencastify.com/v/GCro8fYiQrT7bSnuYFLt)
 
 ## Tests
 
