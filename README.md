@@ -19,14 +19,19 @@ SO THAT I have quick access to their emails and GitHub profiles
 ## Table of Contents
 1. [Description](#description)
 2. [Installation](#installation)
-3. [Tests](#tests)
-4. [License](#license)
-5. [Questions](#questions)
+3. [Usage](#usage)
+4. [Tests](#tests)
+5. [License](#license)
+6. [Questions](#questions)
 ## Installation
 
 1. Copy the repository.
 
 2. Run `npm init -y`
+
+## Usage
+[View this video for usage]()
+
 ## Tests
 
 In the main directory, run `npm run test`
