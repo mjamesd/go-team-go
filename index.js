@@ -1,16 +1,17 @@
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 // Author: Mark Drummond
 // Date: 20-Nov-2021
+// Project Title: Go, Team, Go!
 // Assignment: Team Profile Generator
 // See README.md for more information
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-// INCLUDES
+// REQUIRES
 const Employee = require(`./lib/Employee`);
 const Engineer = require(`./lib/Engineer`);
 const Intern = require(`./lib/Intern`);
 const Manager = require(`./lib/Manager`);
-const scripts = require(`./lib/scripts`);
+const { renderHtml } = require(`./lib/scripts`);
 const inquirer = require(`./node_modules/inquirer`);
 // Add `loop` type to Inquirer
 inquirer.registerPrompt(`recursive`, require(`inquirer-recursive`));
@@ -75,13 +76,13 @@ const employeeQuestions = [
             message: `What is the employee's email address?`
         },
         {
-            name: `employee`,
+            name: `employeeGitHub`,
             type: `input`,
             message: `What is the Engineer's GitHub profile name?`,
             when: (curAnswers) => curAnswers.employeeType === `Engineer`
         },
         {
-            name: `employee`,
+            name: `employeeSchool`,
             type: `input`,
             message: `What is the Intern's school name?`,
             when: (curAnswers) => curAnswers.employeeType === `Intern`
@@ -90,13 +91,14 @@ const employeeQuestions = [
 ];
 
 // 1. Print welcome message.
-console.info(chalk.bold.yellow.bgGreen(` ~*~ WELCOME  Go, Team, Go!  WELCOME ~*~ `));
+console.info(chalk.bold.yellow.bgGreen(`  ~*~ WELCOME  Go, Team, Go!  WELCOME ~*~  `));
 console.info(chalk.italic(`Add employees to make a team roster webpage. You can edit it later, just use this to make the initial structure of the file.`));
 
 // 2. Declare allStaff variable as an array. We will fill this array with objects.
 let allStaff = [];
 
-console.log(chalk.bold.bgCyanBright(`Enter the manager's information first:`));
+// 3. Run inquirer questions. Manager questions first, then for each employee.
+console.log(chalk.bold.bgCyanBright(`  Enter the manager's information first:  `));
 inquirer
     .prompt(managerQuestions)
     .then((managerAnswers) => {
@@ -105,10 +107,7 @@ inquirer
         inquirer
             .prompt(employeeQuestions)
             .then((employeeAnswers) => {
-                // console.log(employeeAnswers);
                 employeeAnswers.anotherEmployee.forEach(employee => {
-                    // let thisEmployee;
-                    console.log(employee);
                     if (employee.employeeType === `Engineer`) {
                         allStaff.push(new Engineer(employee.employeeId, employee.employeeName, employee.employeeEmail, employee.employeeGitHub));
                     } else if (employee.employeeType === `Intern`) {
@@ -116,10 +115,10 @@ inquirer
                     } else {
                         allStaff.push(new Employee(employee.employeeId, employee.employeeName, employee.employeeEmail));
                     }
-                    // allStaff.push(thisEmployee);
                 });
+                // 4. Render cards
+                // console.log(allStaff);
+                const cards = renderHtml(allStaff);
             });
     }
 );
-
-console.log(allStaff);

@@ -1,6 +1,7 @@
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 // Author: Mark Drummond
 // Date: 20-Nov-2021
+// Project Title: Go, Team, Go!
 // Assignment: Team Profile Generator
 // See README.md for more information
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
